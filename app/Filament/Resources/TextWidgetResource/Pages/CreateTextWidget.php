@@ -12,7 +12,7 @@ class CreateTextWidget extends CreateRecord
 
     protected function getRedirectUrl(): string
     {
-    return $this->getResources()::getUrl('index');
+    return $this->getResource()::getUrl('index');
 
         
     }

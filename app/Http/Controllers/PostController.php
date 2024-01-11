@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\TextWidget;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PostController extends Controller
 {
@@ -50,6 +52,11 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        if(!$post || $post->published_at > Carbon::now()){
+            throw new NotFoundHttpException();
+        }
+
+        return view('post.view', compact('post'));
         //
     }
 
