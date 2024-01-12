@@ -7,6 +7,60 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+
+
+
+
+# Blog Laravel 10 com Painel de Administração usando Filament e Tailwind CSS 
+
+Este é um projeto Laravel 10 que implementa um blog simples com um painel de administração utilizando o Filament para a gestão do conteúdo e Tailwind CSS para o design.
+
+## Pré-requisitos
+
+Certifique-se de ter as seguintes dependências instaladas em sua máquina:
+
+- PHP >= 8.0
+- Composer
+-laravel 10
+
+## Instalação
+
+1. Clone o repositório para o seu ambiente local:
+
+   
+   git clone https://github.com/seu-usuario/blog-laravel-10.git
+Navegue até o diretório do projeto:
+
+
+cd blog-laravel-10
+Instale as dependências do PHP usando o Composer:
+
+
+I
+
+
+
+
+cp .env.example .env
+Configure o arquivo .env com suas configurações de banco de dados e outras informações necessárias.
+
+Execute as migrações do banco de dados:
+
+
+php artisan migrate
+Inicie o servidor de desenvolvimento:
+
+php artisan serve
+Visite http://localhost:8000 no seu navegador para visualizar o blog.
+
+Painel de Administração
+O painel de administração pode ser acessado em http://localhost:8000/admin. Certifique-se de ter um usuário administrador criado após a instalação.
+
+Personalização
+Este projeto utiliza Tailwind CSS para estilos. Modifique os arquivos no diretório resources/views e resources/css conforme necessário para personalizar a aparência do seu blog.
+
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
