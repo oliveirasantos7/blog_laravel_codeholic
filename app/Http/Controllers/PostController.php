@@ -6,6 +6,8 @@ use App\Models\Post;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\TextWidget;
+use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PostController extends Controller
@@ -23,10 +25,6 @@ class PostController extends Controller
         // ->whereDate('published_at', '<', Carbon::now())
         ->orderBy('published_at', 'desc')
         ->paginate(5);
-
-        
-
-        
         return view('home', compact('posts'));
     }
 
@@ -76,27 +74,19 @@ class PostController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Post $post)
+    public function byCategory(Category $category)
     {
-        //
+        $posts = Post::query()
+        ->join('category_post', 'posts.id', '=', 'category_post.post_id')
+        ->where('category_post.category_id', '=', $category->id)
+        ->where('active', '=', true)
+        ->wheredate('published_at', '<=', Carbon::now())
+        ->orderBy('published_at', 'desc')
+        ->paginate(10);
+
+        return view('home', compact('posts'));
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Post $post)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Post $post)
-    {
-        //
-    }
+   
 }

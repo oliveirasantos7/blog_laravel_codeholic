@@ -87,6 +87,7 @@
 
         </section>
 
+        <x-sidebar/>
   
 
 </x-layouts.app>
